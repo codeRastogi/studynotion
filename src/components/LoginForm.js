@@ -30,10 +30,11 @@ const LoginForm = ({setIsLoggedIn}) => {
     }
 
     return (
-        <form onSubmit={submitHandler}>
-            <label>
-                <p>
-                    Email Address <sup>*</sup>
+        <form onSubmit={submitHandler}
+        className='flex flex-col w-full gap-y-4 mt-6'>
+            <label className='w-full'>
+                <p className='text-[0.875rem] text-gray-50 mb-1 leading-[1.375rem]'>
+                    Email Address <sup className='text-pink-200'>*</sup>
                 </p>
                 <input
                     required
@@ -42,12 +43,13 @@ const LoginForm = ({setIsLoggedIn}) => {
                     onChange={changeHandler}
                     placeholder='Enter Email Address'
                     name='email'
+                    className='bg-sky-900 rounded-lg text-gray-50 w-full p-[12px] hover:bg-sky-800' 
                 />
             </label>
 
-            <label>
-                <p>
-                    Password<sup>*</sup>
+            <label className='w-full relative'>
+                <p className='text-[0.875rem] text-gray-50 mb-1 leading-[1.375rem]'>
+                    Password <sup className='text-pink-200'>*</sup>
                 </p>
                 <input
                     required
@@ -56,21 +58,24 @@ const LoginForm = ({setIsLoggedIn}) => {
                     onChange={changeHandler}
                     placeholder='Enter Password'
                     name='password'
+                    className='bg-sky-900 rounded-lg text-gray-50 w-full p-[12px] hover:bg-sky-800'
                 />
 
-                <span onClick={() => setShowPassword((prev) => !prev)}>
-                    {showPassword ? (<AiOutlineEyeInvisible />) : (<AiOutlineEye />)}
+                <span 
+                className='absolute right-3  top-[38px] cursor-pointer'
+                onClick={() => setShowPassword((prev) => !prev)}>
+                    {showPassword ? (<AiOutlineEyeInvisible className='fill-gray-300 size-[1.25rem] hover:fill-gray-100'/>) : (<AiOutlineEye className='fill-gray-300 size-[1.25rem] hover:fill-gray-100'/>)}
                 </span>
 
                 <Link to="#">
-                    <p>
+                    <p className='text-xs mt-1 text-blue-100 max-w-max ml-auto'>
                         Forgot Password
                     </p>
                 </Link>
             </label>
 
-            <button>
-                Log In
+            <button className='mt-6 bg-yellow-400 text-center text-lg text-gray-900 font-bold w-full rounded-lg p-[7px] hover:bg-yellow-300'>
+                Sign In
             </button>
         </form>
     )

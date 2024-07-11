@@ -9,12 +9,12 @@ const Navbar = (props) => {
   let setIsLoggedIn = props.setIsLoggedIn;
 
   return (
-    <div className='flex justify-evenly'>
+    <div className='flex ml-[12vw] justify-between items-center w-11/12 max-w-[1160px] py-4 max-auto'>
       <Link to={"/"}>
-        <img src={logo} alt='logo' width={160} height={32} loading='lazy' />
+        <img  src={logo} alt='logo' width={160} height={32} loading='lazy' />
       </Link>
       <nav>
-        <ul className='flex gap-3'>
+        <ul className=' text-white flex gap-x-6'>
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -26,11 +26,12 @@ const Navbar = (props) => {
           </li>
         </ul>
       </nav>
-      <div className='flex gap-3 ml-5 mr-3'>
+      <div className='flex item-center gap-x-4'>
         {
           !isLoggedIn &&
           <Link to={"/login"}>
-            <button >
+            <button className='bg-sky-700 text-white py-[8px] px-[12px] 
+            rounded-[8px] border border-sky-500'>
               Login
             </button>
           </Link>
@@ -39,7 +40,8 @@ const Navbar = (props) => {
         {
           !isLoggedIn &&
           <Link to={"/signup"}>
-            <button>
+            <button className='bg-sky-700 text-white py-[8px] px-[12px] 
+            rounded-[8px] border border-sky-500'>
               Sign Up
             </button>
           </Link>
@@ -48,7 +50,8 @@ const Navbar = (props) => {
         {
           isLoggedIn &&
           <Link to={"/"}>
-            <button onClick={() => {
+            <button className='bg-sky-700 text-white py-[8px] px-[12px] 
+            rounded-[8px] border border-sky-500' onClick={() => {
               setIsLoggedIn(false);
               toast.success("Logged Out")
             }}>
@@ -60,7 +63,8 @@ const Navbar = (props) => {
         {
           isLoggedIn &&
           <Link to={"/dashboard"}>
-            <button>
+            <button className='bg-sky-700 text-white py-[8px] px-[12px] 
+            rounded-[8px] border border-sky-500'>
               Dashboard
             </button>
           </Link>
